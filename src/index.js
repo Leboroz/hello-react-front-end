@@ -1,9 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 import App from './App';
+import React from 'react'
 import './index.css';
+import { createRoot } from "react-dom/client";
+import { Provider } from 'react-redux';
+import configureStore from './store';
 
-ReactDOM.render(
-  <App />,
+const messageStore = configureStore();
+const root = createRoot(
   document.getElementById('root')
+);
+
+root.render(
+  <Provider store={ messageStore }>
+    <App />
+  </Provider>
 );
